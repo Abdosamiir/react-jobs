@@ -1,4 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/app/components/ui/avatar";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -12,9 +17,15 @@ const NavBar = () => {
       </Avatar>
 
       <ul className=" flex space-x-4 text-white">
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/jobs">Jobs</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
       </ul>
     </div>
   );

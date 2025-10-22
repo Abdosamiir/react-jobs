@@ -7,19 +7,44 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/components/ui/card";
-const HomeCard = () => {
+import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
+
+const HomeCard = ({
+  bgColor,
+  text,
+  description,
+  textbtn,
+  bgBtn = "bg-black text-white",
+  link,
+}: {
+  bgColor: string;
+  text: string;
+  description: string;
+  textbtn: string;
+  bgBtn?: string;
+  link: string;
+}) => {
+  const navigate = useNavigate();
   return (
-    <Card className="w-80 mt-5">
+    <Card className={`md:w-1/3 mt-5 ${bgColor}`}>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-        <CardAction>Card Action</CardAction>
+        <CardTitle>For {text}</CardTitle>
+        <CardDescription>Find your dream job</CardDescription>
+        <CardAction>Apply Now</CardAction>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <p>{description}</p>
       </CardContent>
       <CardFooter>
-        <p>Card Footer</p>
+        <Button
+          className={`${bgBtn}`}
+          onClick={() => {
+            navigate(`/${link}`);
+          }}
+        >
+          {textbtn}
+        </Button>
       </CardFooter>
     </Card>
   );

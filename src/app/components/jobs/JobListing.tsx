@@ -10,16 +10,9 @@ import {
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { MapPin } from "lucide-react";
+import type { Job } from "./JobListings";
 
-type job = {
-  id: string;
-  title: string;
-  description: string;
-  location: string;
-  type: string;
-};
-
-const JobListing = ({ job }: { job: job }) => {
+const JobListing = ({ job }: { job: Job }) => {
   const [showMore, setShowMore] = useState(false);
 
   let description = job.description;

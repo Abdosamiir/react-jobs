@@ -9,8 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const addJob = async (data: z.infer<typeof formSchema>) => {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const res = await fetch("/api/jobs", {
+    await fetch("/api/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,4 +19,12 @@ export const addJob = async (data: z.infer<typeof formSchema>) => {
   } catch (error) {
     console.error("Failed to add job:", error);
   }
+};
+
+export const deleteJob = async (id: string) => {
+  console.log("Delete job with id:", id);
+  // Implement the delete functionality here, e.g., make an API call to delete the job
+  await fetch(`/api/jobs/${id}`, {
+    method: "DELETE",
+  });
 };

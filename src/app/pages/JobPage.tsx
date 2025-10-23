@@ -1,12 +1,19 @@
 import { ArrowLeft, MapPin } from "lucide-react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../components/ui/button";
+import { deleteJob } from "../lib/utils";
 
 const JobPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id } = useParams();
   const job = useLoaderData();
-
+  const navigate = useNavigate();
+  function onDeleteClick(id: string) {
+    const confirm = window.confirm("Are you sure you want to delete this job?");
+    if (!confirm) return;
+    deleteJob(id);
+    navigate("/jobs");
+  }
   return (
     <>
       <section>
@@ -54,22 +61,22 @@ const JobPage = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-6">Company Info</h3>
 
-                <h2 className="text-2xl">{job.company.name}</h2>
+                {/* <h2 className="text-2xl">{job.company.name}</h2> */}
 
-                <p className="my-2">{job.company.description}</p>
+                {/* <p className="my-2">{job.company.description}</p> */}
 
                 <hr className="my-4" />
 
                 <h3 className="text-xl">Contact Email:</h3>
 
                 <p className="my-2 bg-indigo-100 p-2 font-bold">
-                  {job.company.contactEmail}
+                  {/* {job.company.contactEmail} */}
                 </p>
 
                 <h3 className="text-xl">Contact Phone:</h3>
 
                 <p className="my-2 bg-indigo-100 p-2 font-bold">
-                  {job.company.contactPhone}
+                  {/* {job.company.contactPhone} */}
                 </p>
               </div>
 
@@ -82,7 +89,10 @@ const JobPage = () => {
                 >
                   Edit Job
                 </Link>
-                <Button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                <Button
+                  onClick={() => onDeleteClick(job.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                >
                   Delete Job
                 </Button>
               </div>

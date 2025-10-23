@@ -12,6 +12,7 @@ export const formSchema = z.object({
 
   location: z.string(),
   salary: z.string(),
+  
   companyName: z.string(),
   companyDescription: z
     .string()

@@ -7,37 +7,38 @@ import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 import { Toaster } from "sonner";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "jobs",
-        element: <JobsPage />,
-      },
-      {
-        path: "jobs/:id",
-        element: <JobPage />,
-        loader: jobLoader,
-      },
-      {
-        path: "add-job",
-        element: <AddJobPage />,
-      },
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      },
-    ],
-  },
-]);
-
 const App = () => {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: "jobs",
+          element: <JobsPage />,
+        },
+        {
+          path: "jobs/:id",
+          element: <JobPage />,
+          loader: jobLoader,
+        },
+        {
+          path: "add-job",
+          element: <AddJobPage />,
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+  ]);
+
   return (
     <>
       <Toaster richColors />

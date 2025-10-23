@@ -11,6 +11,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import { MapPin } from "lucide-react";
 import type { Job } from "./JobListings";
+import { useNavigate } from "react-router-dom";
 
 const JobListing = ({ job }: { job: Job }) => {
   const [showMore, setShowMore] = useState(false);
@@ -19,6 +20,7 @@ const JobListing = ({ job }: { job: Job }) => {
   if (!showMore) {
     description = description.substring(0, 100) + "...";
   }
+  const navigate = useNavigate();
   return (
     <Card key={job.id} className="w-full max-w-sm">
       <CardHeader>
@@ -41,7 +43,7 @@ const JobListing = ({ job }: { job: Job }) => {
       </CardContent>
       <CardFooter>
         <Button
-          //   onClick={}
+          onClick={() => navigate(`/jobs/${job.id}`)}
           variant="outline"
           className="w-full bg-violet-700 text-white"
         >

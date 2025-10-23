@@ -4,6 +4,8 @@ import MainLayout from "./layouts/MainLayout";
 import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
+import AddJobPage from "./pages/AddJobPage";
+import { Toaster } from "sonner";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
         loader: jobLoader,
       },
       {
+        path: "add-job",
+        element: <AddJobPage />,
+      },
+      {
         path: "*",
         element: <NotFoundPage />,
       },
@@ -32,7 +38,12 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Toaster richColors />
+      <RouterProvider router={router} />
+    </>
+  );
 };
 
 export default App;

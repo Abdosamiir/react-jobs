@@ -26,8 +26,8 @@ const JobListing = ({ job }: { job: Job }) => {
       <CardHeader>
         <CardTitle>{job.title}</CardTitle>
         <CardDescription>{job.type}</CardDescription>
-        <CardAction className="flex gap-1 text-red-500">
-          <MapPin className="text-red-500" />
+        <CardAction className="flex gap-1 text-orange-700">
+          <MapPin className="text-orange-700" />
           {job.location}
         </CardAction>
       </CardHeader>

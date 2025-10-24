@@ -14,13 +14,14 @@ import type { Job } from "./JobListings";
 import { useNavigate } from "react-router-dom";
 
 const JobListing = ({ job }: { job: Job }) => {
+  const navigate = useNavigate();
   const [showMore, setShowMore] = useState(false);
 
   let description = job.description;
-  if (!showMore) {
+  if (!showMore && description.length > 50) {
     description = description.substring(0, 100) + "...";
   }
-  const navigate = useNavigate();
+
   return (
     <Card key={job.id} className="w-full max-w-sm">
       <CardHeader>
@@ -33,13 +34,15 @@ const JobListing = ({ job }: { job: Job }) => {
       </CardHeader>
       <CardContent>
         {description}
-        <Button
-          onClick={() => setShowMore(!showMore)}
-          variant="link"
-          className="text-indigo-500 hover:text-indigo-600 hover:no-underline"
-        >
-          {showMore ? "Show less" : "Show more"}
-        </Button>
+        {job.description.length > 50 && (
+          <Button
+            onClick={() => setShowMore(!showMore)}
+            variant="link"
+            className="text-indigo-500 hover:text-indigo-600 hover:no-underline"
+          >
+            {showMore ? "Show less" : "Show more"}
+          </Button>
+        )}
       </CardContent>
       <CardFooter>
         <Button

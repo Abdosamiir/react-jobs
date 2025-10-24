@@ -6,9 +6,9 @@ import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 import { Toaster } from "sonner";
+import EditJobPage from "./pages/EditJobPage";
 
 const App = () => {
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -31,6 +31,12 @@ const App = () => {
           path: "add-job",
           element: <AddJobPage />,
         },
+        {
+          path: "edit-job/:id",
+          element: <EditJobPage />,
+          loader: jobLoader,
+        },
+
         {
           path: "*",
           element: <NotFoundPage />,

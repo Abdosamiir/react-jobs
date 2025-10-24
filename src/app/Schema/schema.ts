@@ -1,5 +1,6 @@
 import * as z from "zod";
 export const formSchema = z.object({
+  id: z.string().optional(),
   title: z
     .string()
     .min(5, "Bug title must be at least 5 characters.")
@@ -8,7 +9,7 @@ export const formSchema = z.object({
   description: z
     .string()
     .min(10, "Description must be at least 10 characters.")
-    .max(100, "Description must be at most 100 characters."),
+    .max(1000, "Description must be at most 1000 characters."),
 
   location: z.string(),
   salary: z.string(),
@@ -17,7 +18,7 @@ export const formSchema = z.object({
     description: z
       .string()
       .min(20, "Company Description must be at least 20 characters.")
-      .max(100, "Company Description must be at most 100 characters."),
+      .max(1000, "Company Description must be at most 100 characters."),
     contactEmail: z.email("Invalid email address."),
     contactPhone: z.string().min(10, "Invalid phone number."),
   }),

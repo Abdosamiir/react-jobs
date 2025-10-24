@@ -28,3 +28,17 @@ export const deleteJob = async (id: string) => {
     method: "DELETE",
   });
 };
+
+export const updateJob = async (data: z.infer<typeof formSchema>) => {
+  try {
+    await fetch(`/api/jobs/${data.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    console.error("Failed to edit job:", error);
+  }
+};

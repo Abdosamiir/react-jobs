@@ -2,16 +2,22 @@ import { ArrowLeft, MapPin } from "lucide-react";
 import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { deleteJob } from "../lib/utils";
+import { toast } from "sonner";
 
 const JobPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id } = useParams();
   const job = useLoaderData();
   const navigate = useNavigate();
+
   function onDeleteClick(id: string) {
     const confirm = window.confirm("Are you sure you want to delete this job?");
     if (!confirm) return;
     deleteJob(id);
+    toast.success("Job Deleted Successfully!", {
+      description: "The job listing has been removed from the platform",
+      position: "top-center",
+    });
     navigate("/jobs");
   }
   return (
@@ -32,11 +38,11 @@ const JobPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-[70%_28%] w-full gap-4 lg:gap-8">
             <main>
               <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
-                <div className="text-gray-500 mb-4">{job.type}</div>
-                <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
+                <div className="text-gray-500 mb-4">{job?.type}</div>
+                <h1 className="text-3xl font-bold mb-4">{job?.title}</h1>
                 <div className="text-gray-500 mb-4 flex gap-2 align-middle justify-center md:justify-start">
                   <MapPin className="text-orange-700" />
-                  <p className="text-orange-700">{job.location}</p>
+                  <p className="text-orange-700">{job?.location}</p>
                 </div>
               </div>
 
@@ -45,13 +51,13 @@ const JobPage = () => {
                   Job Description
                 </h3>
 
-                <p className="mb-4">{job.description}</p>
+                <p className="mb-4">{job?.description}</p>
 
                 <h3 className="text-indigo-800 text-lg font-bold mb-2">
                   Salary
                 </h3>
 
-                <p className="mb-4">{job.salary}</p>
+                <p className="mb-4">{job?.salary}</p>
               </div>
             </main>
 
@@ -84,7 +90,7 @@ const JobPage = () => {
               <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
                 <Link
-                  to="/add-job"
+                  to={`/edit-job/${job.id}`}
                   className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Edit Job

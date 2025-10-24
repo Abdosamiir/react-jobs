@@ -2,7 +2,7 @@
   "jobs": [
     {
       "id": "1",
-      "title": "Senior React Developer",
+      "title": "Senior React Developer updated",
       "type": "Full-Time",
       "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
       "location": "Boston, MA",
@@ -59,15 +59,15 @@
     {
       "id": "5",
       "title": "Full Stack React Developer",
-      "type": "Full-Time",
+      "type": "Part-Time",
       "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Atlanta, GA. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
       "location": "Atlanta, GA",
-      "salary": "$90K - $100K",
+      "salary": "Above $150k",
       "company": {
         "name": "Browning Technologies",
         "description": "Browning Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
         "contactEmail": "contact@consecteturadipisicing.com",
-        "contactPhone": "555-555-5555"
+        "contactPhone": "555-555-6666"
       }
     },
     {
@@ -83,30 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "cc28",
-      "title": "test-1",
-      "type": "Full-Time",
-      "description": "this is test ",
-      "location": "mans",
-      "salary": "100k - $150k",
-      "companyName": "tech",
-      "companyDescription": "its an awsome company",
-      "contactEmail": "barakatabdo82@gmail.com",
-      "contactPhone": "0100000000"
-    },
-    {
-      "id": "fc2b",
-      "title": "test-2",
-      "type": "Part-Time",
-      "description": "this is woooork",
-      "location": "manssss",
-      "salary": "50k - $100k",
-      "companyName": "drbbbb",
-      "companyDescription": "its workkkk babyyyyyyyyyy",
-      "contactEmail": "barakatabdo82@gmail.com",
-      "contactPhone": "01515151515151"
     }
   ]
 }

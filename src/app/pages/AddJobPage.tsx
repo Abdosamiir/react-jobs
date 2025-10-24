@@ -47,10 +47,12 @@ export function AddJobPage() {
       description: "",
       location: "",
       salary: "",
-      companyName: "",
-      companyDescription: "",
-      contactEmail: "",
-      contactPhone: "",
+      company: {
+        name: "",
+        description: "",
+        contactEmail: "",
+        contactPhone: "",
+      },
     },
   });
 
@@ -200,7 +202,7 @@ export function AddJobPage() {
                 )}
               />
               <Controller
-                name="companyName"
+                name="company.name"
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
@@ -220,7 +222,7 @@ export function AddJobPage() {
               />
 
               <Controller
-                name="companyDescription"
+                name="company.description"
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
@@ -238,7 +240,8 @@ export function AddJobPage() {
                       />
                       <InputGroupAddon align="block-end">
                         <InputGroupText className="tabular-nums">
-                          {field.value.length}/100 characters
+                          {field.value ? String(field.value).length : 0}/100
+                          characters
                         </InputGroupText>
                       </InputGroupAddon>
                     </InputGroup>
@@ -251,7 +254,7 @@ export function AddJobPage() {
               />
 
               <Controller
-                name="contactEmail"
+                name="company.contactEmail"
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
@@ -273,7 +276,7 @@ export function AddJobPage() {
                 )}
               />
               <Controller
-                name="contactPhone"
+                name="company.contactPhone"
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>

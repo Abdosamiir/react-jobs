@@ -12,12 +12,13 @@ export const formSchema = z.object({
 
   location: z.string(),
   salary: z.string(),
-  
-  companyName: z.string(),
-  companyDescription: z
-    .string()
-    .min(20, "Company Description must be at least 20 characters.")
-    .max(100, "Company Description must be at most 100 characters."),
-  contactEmail: z.email("Invalid email address."),
-  contactPhone: z.string().min(10, "Invalid phone number."),
+  company: z.object({
+    name: z.string(),
+    description: z
+      .string()
+      .min(20, "Company Description must be at least 20 characters.")
+      .max(100, "Company Description must be at most 100 characters."),
+    contactEmail: z.email("Invalid email address."),
+    contactPhone: z.string().min(10, "Invalid phone number."),
+  }),
 });
